@@ -1,0 +1,83 @@
+// create a start button
+//. attach a click event
+// start timer countdown (use —  “setInterval”)
+
+// generate first question + answers + data attributes
+
+// add “click” event to answer buttons —— 
+    // increment question counter
+    // generate next question ……
+    // if incorrect, deduct time counter
+    // if done, generate form for user and save score to local storage 
+    // clear and show scores
+
+    <!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coding Quiz</title>
+</head>
+
+<body>
+
+  <script>
+
+    // Create an array of Questions and Answers objects for QUIZ.
+    var QnA = [
+            {q: “Commonly used data types DO NOT include:”
+                1: “strings“
+                2: “booleans“
+                3: “alerts“
+                4: “numbers“
+             q: "The condition in an if / else statement is enclosed within _______.”
+                1: "quotes"
+                2. "curly brackets"
+                3. "parenthesis"
+                4. "square brackets"
+             q: "Arrays in JavaScript can be used to store _____. "
+                1: "numbers and strings"
+                2: "other arrays"
+                3: "booleans"
+                4: "all of the above"
+             q: "String values must be enclosed within ________ when being assigned to variables."
+                1: "commas"
+                2: "curly brackets"
+                3: "quotes"
+                4: "parenthesis"
+             q: "A very useful tool used during development and debugging for printing content to the debugger is:"
+                1: "JavaScript"
+                2: "terminal/bash"
+                3: "for loops"
+                4: "console log"
+            } ];
+
+
+    // We start the game with a score of 0.
+    var score = 0;
+
+    // Loop over every question object
+    for (var i = 0; i < questions.length; i++) {
+      // Display current question to user and ask OK/Cancel
+      var answer = confirm(questions[i].q);
+
+      // Compare answers
+      if ((answer === true && questions[i].a === "t") ||
+        (answer === false && questions[i].a === "f")) {
+        // Increase score
+        score++;
+        alert("Correct!");
+      }
+      else {
+        alert("Wrong!");
+      }
+    }
+
+    // Show total at end
+    alert("You got " + score + "/" + questions.length);
+
+  </script>
+
+</body>
+
+</html>
