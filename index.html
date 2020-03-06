@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coding Quiz Challenge</title>
+</head>
+<body>
+ 
+    <style>
+     
+        .button1 {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 100px;
+        }
+
+        .ansBtn {
+            color: black;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        #titleText {
+            text-align: center;
+        }
+
+        #questionText {
+            text-align: left;
+        }
+
+        #correctMes {
+            color: green;
+        }
+
+        #wrongMes    {   
+            color: red;
+        }
+    </style>
+
+    <div id="frame">
+        <div id="textMes">
+            <h2>Coding Quiz</h2>
+            Question: <text id="questNum">0</text><br />
+                Score: <text id="score">0</text>
+        <hr />
+                <div id="message">Click Begin to start</div><br />
+            </div>
+        <div id="questionText">
+            <div id="question"></div>
+            <div id="option1"></div>
+            <div id="option2"></div>
+            <div id="option3"></div>
+            <div id="option4"></div>
+            <div id="answer"></div>
+            <div id="textMes">
+                <div id="disappear001"><button class="button1" onclick="beginQuiz()">Begin</button></div>
+            </div>
+            <div id="next"></div>
+        </div>
+        </div>
+    
+    <script>
+
+    // create array on questions in var
+
+        var q = ["Commonly used data types DO NOT include:<br /><br />", 
+                 "The condition in an if / else statement is enclosed within _______.?<br /><br />", 
+                 "Arrays in JavaScript can be used to store _____.<br /><br />", 
+                 "String values must be enclosed within ________ when being assigned to variables.<br /><br />", 
+                 "A very useful tool used during development and debugging for printing content to the debugger is:<br /><br />", 
+                ];
+
+    // create array of answers and options for each question in var            
+
+        var a1 = ["<button class=ansBtn onclick=q1correct()>strings</button>",
+                  "<button class=ansBtn onclick=q2correct()>quotes</button>",
+                  "<button class=ansBtn onclick=q3correct()>numbers and strings</button>",
+                  "<button class=ansBtn onclick=q4wrong()>commas</button>",
+                  "<button class=ansBtn onclick=q5wrong()>JavaScript</button>",
+                  ];
+
+        var a2 = ["<button class=ansBtn onclick=q1wrong()>booleans  </button>",
+                  "<button class=ansBtn onclick=q2wrong()>curly brackets</button>",
+                  "<button class=ansBtn onclick=q3wrong()>other arrays</button>",
+                  "<button class=ansBtn onclick=q4correct()>curly brackets</button>",
+                  "<button class=ansBtn onclick=q5correct()>terminal/bash</button>",
+                  ];
+
+        var a3 = ["<button class=ansBtn onclick=q1wrong()>alerts</button>",
+                  "<button class=ansBtn onclick=q2wrong()>parenthesis</button>",
+                  "<button class=ansBtn onclick=q3wrong()>booleans</button>",
+                  "<button class=ansBtn onclick=q4wrong()>quotes</button>",
+                  "<button class=ansBtn onclick=q5wrong()>for loops</button>",
+                  ];
+
+        var a4 = ["<button class=ansBtn onclick=q1wrong()>numbers</button>",
+                  "<button class=ansBtn onclick=q2wrong()>square brackets</button>",
+                  "<button class=ansBtn onclick=q3wrong()>all the above</button>",
+                  "<button class=ansBtn onclick=q4wrong()>parenthesis</button>",
+                  "<button class=ansBtn onclick=q5wrong()>console log</button>",
+                  ];
+
+    // give variable name for correct and incorrect answers          
+
+        var c = ["Correct", "Correct", "Correct", "Correct", "Correct"];
+        var i = ["Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect"];
+
+    //  create quiz score variable and increment by 1 
+
+        var quizScore = 0;
+        quizScore++;
+        var questionNum = 0;
+        questionNum++;
+
+    // create function to begin the new quiz    
+
+        function beginQuiz() {
+            disappear001.innerHTML = "";
+            message.innerHTML = "";
+            question.innerHTML = q[0];
+            option1.innerHTML = a1[0];
+            option2.innerHTML = a2[0];
+            option3.innerHTML = a3[0];
+            option4.innerHTML = a4[0];
+            questNum.innerHTML = questionNum++;
+        }
+
+    // click fuction for each question
+    // choose right and wrong answer with alert message
+
+
+        function q1correct() {
+            answer.innerHTML = "<div id=correctMes>" + c[0] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question2()>Next</button>";
+            quizScore.innerHTML = quizScore++;
+        }
+
+        function q1wrong() {
+            answer.innerHTML = "<div id=wrongMes    >" + i[0] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question2()>Next</button>";
+        }
+
+        function question2() {
+            question.innerHTML = q[1];
+            option1.innerHTML = a1[1];
+            option2.innerHTML = a2[1];
+            option3.innerHTML = a3[1];
+            option4.innerHTML = a4[1];
+            next.innerHTML = "";
+            answer.innerHTML = "";
+            questNum.innerHTML = questionNum++;
+        }
+
+        function q2correct() {
+            answer.innerHTML = "<div id=correctMes>" + c[1] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question3()>Next</button>";
+            quizScore.innerHTML = quizScore++;
+        }
+
+        function q2wrong() {
+            answer.innerHTML = "<div id=wrongMes    >" + i[1] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question3()>Next</button>";
+        }
+
+        function question3() {
+            question.innerHTML = q[2];
+            option1.innerHTML = a1[2];
+            option2.innerHTML = a2[2];
+            option3.innerHTML = a3[2];
+            option4.innerHTML = a4[2];
+            next.innerHTML = "";
+            answer.innerHTML = "";
+            questNum.innerHTML = questionNum++;
+        }
+
+        function q3correct() {
+            answer.innerHTML = "<div id=correctMes>" + c[2] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question4()>Next</button>";
+            quizScore.innerHTML = quizScore++;
+        }
+
+        function q3wrong() {
+            answer.innerHTML = "<div id=wrongMes    >" + i[2] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question4()>Next</button>";
+        }
+
+        function question4() {
+            question.innerHTML = q[3];
+            option1.innerHTML = a1[3];
+            option2.innerHTML = a2[3];
+            option3.innerHTML = a3[3];
+            option4.innerHTML = a4[3];
+            next.innerHTML = "";
+            answer.innerHTML = "";
+            questNum.innerHTML = questionNum++;
+        }
+
+        function q4correct() {
+            answer.innerHTML = "<div id=correctMes>" + c[3] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question5()>Next</button>";
+            quizScore.innerHTML = quizScore++;
+        }
+
+        function q4wrong() {
+            answer.innerHTML = "<div id=wrongMes    >" + i[3] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=question5()>Next</button>";
+        }
+
+        function question5() {
+            question.innerHTML = q[4];
+            option1.innerHTML = a1[4];
+            option2.innerHTML = a2[4];
+            option3.innerHTML = a3[4];
+            option4.innerHTML = a4[4];
+            next.innerHTML = "";
+            answer.innerHTML = "";
+            questNum.innerHTML = questionNum++;
+        }
+
+        function q5correct() {
+            answer.innerHTML = "<div id=correctMes>" + c[4] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=endOfQuiz()>End of Quiz</button>";
+            quizScore.innerHTML = quizScore++;
+        }
+
+        function q5wrong() {
+            answer.innerHTML = "<div id=wrongMes    >" + i[4] + "</div>";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<button class=button1 onclick=endOfQuiz()>End of Quiz</button>";
+        }
+
+    // end quiz    
+
+        function endOfQuiz() {
+            message.innerHTML = "End of Quiz.";
+            question.innerHTML = "";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            next.innerHTML = "<div id=textMes>" + "<button class=button1 onclick=repeat()>Repeat</button>" + "</div>";
+            answer.innerHTML = "";
+        }
+
+    // repeat quiz function    
+
+        function repeat() {
+            location.reload();
+        }
+    </script>
+
+</body>
+</html>
+
